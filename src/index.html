@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Controle de Catracas - UNIP</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 min-h-screen font-['Roboto']">
+    <!-- Header -->
+    <header class="bg-blue-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-university text-3xl mr-4"></i>
+                <h1 class="text-2xl font-['Poppins'] font-semibold">Sistema de Controle de Catracas</h1>
+            </div>
+            <div class="text-sm">
+                <span id="datetime" class="font-medium"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Authentication Section -->
+            <section class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold mb-6 flex items-center">
+                    <i class="fas fa-id-card mr-3 text-blue-600"></i>
+                    Autenticação
+                </h2>
+                <form id="authForm" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2" for="userId">
+                            ID do Usuário
+                        </label>
+                        <div class="relative">
+                            <i class="fas fa-user absolute left-3 top-3 text-gray-400"></i>
+                            <input type="text" id="userId" 
+                                class="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                                placeholder="Digite seu ID">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2" for="password">
+                            Senha
+                        </label>
+                        <div class="relative">
+                            <i class="fas fa-lock absolute left-3 top-3 text-gray-400"></i>
+                            <input type="password" id="password" 
+                                class="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                                placeholder="Digite sua senha">
+                        </div>
+                    </div>
+                    <button type="submit" 
+                        class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300">
+                        Autenticar
+                    </button>
+                </form>
+            </section>
+
+            <!-- Turnstile Status Section -->
+            <section class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold mb-6 flex items-center">
+                    <i class="fas fa-door-open mr-3 text-blue-600"></i>
+                    Status da Catraca
+                </h2>
+                <div class="space-y-6">
+                    <div id="turnstileStatus" class="text-center p-6 rounded-lg border-2 border-gray-200">
+                        <i class="fas fa-lock text-4xl text-red-500 mb-4"></i>
+                        <p class="text-lg font-medium">Status: <span id="status">Bloqueada</span></p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-medium mb-2">Último Acesso</h3>
+                        <p id="lastAccess" class="text-gray-600">Nenhum acesso registrado</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Log Section -->
+        <section class="mt-8 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-6 flex items-center">
+                <i class="fas fa-list-alt mr-3 text-blue-600"></i>
+                Registro de Eventos
+            </h2>
+            <div id="logContainer" class="h-48 overflow-y-auto bg-gray-50 p-4 rounded-lg font-mono text-sm">
+                <!-- Logs will be inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-8">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2024 UNIP - Universidade Paulista</p>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-sm">Sistema de Controle de Catracas v1.0</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
